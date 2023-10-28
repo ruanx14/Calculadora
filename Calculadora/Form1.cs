@@ -9,7 +9,7 @@ namespace Calculadora
     {
         List<Button> buttons;
         List<Button> operations;
-        private string value;
+        private double value;
         private string operation;
         CultureInfo culturaBrasileira;
         public Form1()
@@ -102,8 +102,8 @@ namespace Calculadora
                         operation = "/";
                         break;
                 }
-                value = txtResult.Text.ToString();
-                txtCalc.Text = txtResult.Text.ToString() + " " + btn.Text + " ";
+                value = Convert.ToDouble(txtResult.Text);
+                txtCalc.Text = value.ToString("N2",culturaBrasileira) + " " + btn.Text + " ";
                 txtResult.Text = "";
             }
         }
