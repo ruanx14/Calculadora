@@ -42,17 +42,18 @@ namespace Calculadora
                         //Debug.WriteLine("teste: " + Convert.ToDouble(value));
                         double total = Convert.ToDouble(value) + Convert.ToDouble(txtResult.Text);
                         txtResult.Text = total.ToString("N2", culturaBrasileira);
-                    }else if (operation == "-")
+                    }
+                    else if (operation == "-")
                     {
                         double total = Convert.ToDouble(value) - Convert.ToDouble(txtResult.Text);
                         txtResult.Text = total.ToString("N2", culturaBrasileira);
                     }
-                    else if(operation == "x")
+                    else if (operation == "x")
                     {
                         double total = Convert.ToDouble(value) * Convert.ToDouble(txtResult.Text);
                         txtResult.Text = total.ToString("N2", culturaBrasileira);
                     }
-                    else if(operation== "/")
+                    else if (operation == "/")
                     {
                         double total = Convert.ToDouble(value) / Convert.ToDouble(txtResult.Text);
                         txtResult.Text = total.ToString("N2", culturaBrasileira);
@@ -64,7 +65,10 @@ namespace Calculadora
             };
             btnDot.Click += (object sender, EventArgs e) =>
             {
-
+                if (txtResult.Text.Length < 2 || !txtResult.Text.Contains("."))
+                {
+                    txtResult.Text += ",";
+                }
             };
         }
 
@@ -77,7 +81,7 @@ namespace Calculadora
         {
             Button btn = sender as Button;
             txtResult.Text += btn.Text;
-            
+
         }
         private void writeOperation(object sender, EventArgs e)
         {
@@ -103,11 +107,11 @@ namespace Calculadora
                         break;
                 }
                 value = Convert.ToDouble(txtResult.Text);
-                txtCalc.Text = value.ToString("N2",culturaBrasileira) + " " + btn.Text + " ";
+                txtCalc.Text = value.ToString("N2", culturaBrasileira) + " " + btn.Text + " ";
                 txtResult.Text = "";
             }
         }
-        
+
 
     }
 }

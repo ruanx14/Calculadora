@@ -191,7 +191,7 @@
             btnDot.Name = "btnDot";
             btnDot.Size = new Size(63, 55);
             btnDot.TabIndex = 13;
-            btnDot.Text = ".";
+            btnDot.Text = ",";
             btnDot.UseVisualStyleBackColor = true;
             // 
             // btnClean
